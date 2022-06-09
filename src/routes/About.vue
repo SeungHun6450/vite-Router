@@ -34,6 +34,24 @@ export default {
   computed: {
     ...mapStores([useMessageStore])
   },
+  methods: {
+    // this.messageStore.message = 'Good!!'
+    // this.messageStore.count = 2
+
+    // patch의 기능
+    // 1. 객체데이터를 제공
+    // 2. 화살표 함수를 제공
+    updateStore() {
+      this.messageStore.$patch({
+      // patch를 수정한다라는 의미로...생각행
+      message: 'Good!!',
+      count: 2
+    })
+    },
+    resetStore() {
+      this.messageStore.$reset()
+    }
+  }
 
   // 2. import { mapState, mapActions } from 'pinia' 사용 시
   // computed: {
